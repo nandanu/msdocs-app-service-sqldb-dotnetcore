@@ -39,7 +39,7 @@ namespace DotNetCoreSqlDb.Controllers
                 _logger.LogInformation("Data from database.");
                 var todoList = await _context.Todo.ToListAsync();
                 var serializedTodoList = JsonConvert.SerializeObject(todoList);
-                await _cache.SetAsync(_TodoItemsCacheKey, Encoding.UTF8.GetBytes(serializedTodoList));
+                // await _cache.SetAsync(_TodoItemsCacheKey, Encoding.UTF8.GetBytes(serializedTodoList));
                 return View(todoList);
             }
         }
