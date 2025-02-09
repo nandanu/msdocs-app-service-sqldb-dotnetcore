@@ -12,7 +12,8 @@ if(builder.Environment.IsDevelopment())
 else
 {
     builder.Services.AddDbContext<MyDatabaseContext>(options =>
-        options.UseSqlServer(builder.Configuration.GetConnectionString("AZURE_SQL_CONNECTIONSTRING")));
+        // options.UseSqlServer(builder.Configuration.GetConnectionString("AZURE_SQL_CONNECTIONSTRING")));
+        options.UseSqlServer("Server=tcp:msdocs-core-sql-51-server.database.windows.net,1433;Database=msdocs-core-sql-51-database;Authentication=Active Directory Managed Identity");
     // builder.Services.AddStackExchangeRedisCache(options =>
     // {
     // options.Configuration = builder.Configuration["AZURE_REDIS_CONNECTIONSTRING"];
